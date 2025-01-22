@@ -44,6 +44,10 @@ const transporter = nodemailer.createTransport({
 	},
 });
 
+app.get('/', (req, res) => {
+	res.status(200).send('Servidor funcionando correctamente');
+});
+
 app.post('/send-email', upload.single('file'), async (req, res) => {
 	try {
 		const { errorType, message, ruta } = req.body;
